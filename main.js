@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { exec } = require('child_process');
 const path = require('path');
+const chokidar = require('chokidar');
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
@@ -14,6 +15,17 @@ function createWindow() {
     });
 
     mainWindow.loadFile('index.html');
+
+    // Watch for changes in the /docs/ and /output/ directories
+    const watcher = chokidar.watch([path.join(__dirname, 'docs'), path.join(__dirname, 'output')], {
+        ignored: /(^|[\/\\])\../, // ignore dotfiles
+        persistent: true
+    });
+
+    watcher.on('change', (filePath) => {
+        console.log(`File changed: ${filePath}`);
+        mainWindow.reload();
+    });
 }
 
 app.on('ready', createWindow);
