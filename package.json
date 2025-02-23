@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "license": "Apache-2.0",
   "description": "Quick setup for a specification with the Spec-Up-T tool.",
+  "main": "main.js",
   "dependencies": {
     "dotenv": "^16.4.5",
     "spec-up-t": "^1.1.0"
@@ -20,7 +21,9 @@
     "menu": "bash ./node_modules/spec-up-t/src/install-from-boilerplate/menu.sh",
     "addremovexrefsource": "node --no-warnings -e \"require('spec-up-t/src/add-remove-xref-source.js')\"",
     "configure": "node --no-warnings -e \"require('spec-up-t/src/configure.js')\"",
-    "custom-update": "npm update && node -e \"require('spec-up-t/src/install-from-boilerplate/custom-update.js')\""
+    "custom-update": "npm update && node -e \"require('spec-up-t/src/install-from-boilerplate/custom-update.js')\"",
+    "start": "electron .",
+    "build": "npm run build"
   },
   "devDependencies": {
     "electron": "^34.2.0"
