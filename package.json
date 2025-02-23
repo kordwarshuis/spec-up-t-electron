@@ -24,10 +24,33 @@
     "configure": "node --no-warnings -e \"require('spec-up-t/src/configure.js')\"",
     "custom-update": "npm update && node -e \"require('spec-up-t/src/install-from-boilerplate/custom-update.js')\"",
     "start": "electron .",
-    "build": "npm run build"
+    "build": "electron-builder"
   },
   "devDependencies": {
     "electron": "^34.2.0",
-    "electron-builder": "^25.1.8"
+    "electron-builder": "^23.0.0"
+  },
+  "build": {
+    "appId": "com.example.specuptstarterpack",
+    "productName": "Spec-Up-T Starterpack",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
