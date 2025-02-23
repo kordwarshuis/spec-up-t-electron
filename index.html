@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Electron App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spec-Up-T Starterpack</title>
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        function runScript(script) {
+            ipcRenderer.send('run-script', script);
+        }
+    </script>
 </head>
 
 <body>
-    <h1>Hello from Electron!</h1>
-    <p>We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, and Electron
-        <span id="electron-version"></span>.</p>
+    <h1>Spec-Up-T Starterpack</h1>
+    <button onclick="runScript('edit')">Edit</button>
+    <button onclick="runScript('render')">Render</button>
+    <button onclick="runScript('dev')">Dev</button>
+    <button onclick="runScript('collectExternalReferencesCache')">Collect External References (Cache)</button>
+    <button onclick="runScript('collectExternalReferencesNoCache')">Collect External References (No Cache)</button>
+    <button onclick="runScript('topdf')">To PDF</button>
+    <button onclick="runScript('freeze')">Freeze</button>
+    <button onclick="runScript('references')">References</button>
+    <button onclick="runScript('help')">Help</button>
+    <button onclick="runScript('menu')">Menu</button>
+    <button onclick="runScript('addremovexrefsource')">Add/Remove XRef Source</button>
+    <button onclick="runScript('configure')">Configure</button>
+    <button onclick="runScript('custom-update')">Custom Update</button>
+    <button onclick="runScript('start')">Start</button>
+    <button onclick="runScript('build')">Build</button>
 </body>
 
 </html>
