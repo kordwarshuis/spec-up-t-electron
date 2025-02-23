@@ -4,6 +4,7 @@
   "license": "Apache-2.0",
   "description": "Quick setup for a specification with the Spec-Up-T tool.",
   "main": "main.js",
+  "bin": "main.js",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
