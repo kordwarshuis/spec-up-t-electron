@@ -27,7 +27,8 @@
     "build": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^34.2.0"
+    "electron": "^34.2.0",
+    "pkg": "^5.8.1"
   },
   "build": {
     "appId": "com.example.specuptstarterpack",
