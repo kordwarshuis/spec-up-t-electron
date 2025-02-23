@@ -4,7 +4,6 @@
   "license": "Apache-2.0",
   "description": "Quick setup for a specification with the Spec-Up-T tool.",
   "main": "main.js",
-  "bin": "main.js",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
@@ -25,24 +24,36 @@
     "configure": "node --no-warnings -e \"require('spec-up-t/src/configure.js')\"",
     "custom-update": "npm update && node -e \"require('spec-up-t/src/install-from-boilerplate/custom-update.js')\"",
     "start": "electron .",
-    "build": "pkg ."
+    "build": "electron-builder"
   },
   "devDependencies": {
     "electron": "^34.2.0",
-    "pkg": "^5.3.3"
+    "electron-builder": "^23.0.0"
   },
-  "pkg": {
-    "scripts": "main.js",
-    "assets": [
+  "resolutions": {
+    "fsevents": "2.3.2"
+  },
+  "build": {
+    "appId": "com.example.specuptstarterpack",
+    "productName": "Spec-Up-T Starterpack",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
       "index.html",
+      "main.js",
       "preload.js",
+      "package.json",
       "node_modules/**/*"
     ],
-    "targets": [
-      "node16-macos-arm64",
-      "node16-linux-arm64",
-      "node16-win-arm64"
-    ],
-    "outputPath": "dist"
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
